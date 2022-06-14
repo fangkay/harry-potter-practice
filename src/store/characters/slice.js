@@ -141,8 +141,13 @@ const initialState = {
 export const charactersSlice = createSlice({
   name: "characters",
   initialState,
-  reducers: {},
+  reducers: {
+    addCharacter: (state, action) => {
+      const newCharacter = action.payload;
+      state.allCharacters = [newCharacter, ...state.allCharacters];
+    },
+  },
 });
 
-export const {} = charactersSlice.actions;
+export const { addCharacter } = charactersSlice.actions;
 export default charactersSlice.reducer;

@@ -10,6 +10,7 @@ export const ListAllCharacters = () => {
         {characters.map((c) => {
           return (
             <li key={c.id}>
+              <img width="150" src={c.imgUrl} alt={c.name}></img>
               <p>{c.name}</p>
               <p>{c.house.name}</p>
             </li>
