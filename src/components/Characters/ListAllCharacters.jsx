@@ -1,3 +1,21 @@
+import { useSelector } from "react-redux";
+import { selectCharacters } from "../../store/characters/selectors";
+
 export const ListAllCharacters = () => {
-  return <h1>Here you will find all the characters</h1>;
+  const characters = useSelector(selectCharacters);
+
+  return (
+    <div>
+      <ul>
+        {characters.map((c) => {
+          return (
+            <li key={c.id}>
+              <p>{c.name}</p>
+              <p>{c.house.name}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
